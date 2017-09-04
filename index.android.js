@@ -26,7 +26,7 @@ export default class RNStatusBar extends Component {
                  console.log('showStatusBar');
              });
           }}
-          title="Show StatusBar Switch"
+          title="Demo"
           color="#841584"/> 
       </View>
     );
