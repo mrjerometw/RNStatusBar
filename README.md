@@ -1,10 +1,11 @@
 # RNStatusBar
 
-#### Demo
-Show Status Bar
+#### Demo - Show Status Bar
+
 <img src="show.png" alt="alt text" width="600" height="800">
 
-Hide Status Bar
+#### Demo - Hide Status Bar
+
 <img src="hide.png" alt="alt text" width="600" height="800">
 
 #### How to use ?
@@ -12,12 +13,11 @@ Hide Status Bar
 
 2. Modify the ```MainApplication.java``` java code in android studio project
 ```java
-   @Override
-   protected List<ReactPackage> getPackages() {
-       return Arrays.<ReactPackage>asList(
-       new MainReactPackage(),
-       new ReactPackageManagement());
-   }
+protected List<ReactPackage> getPackages() {
+   return Arrays.<ReactPackage>asList(
+   new MainReactPackage(),
+   new ReactPackageManagement());
+}
 ```
 
 3. Modify the JS code in ```index.android.js```
