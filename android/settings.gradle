@@ -1,0 +1,3 @@
+rootProject.name = 'RNStatusBar'
+
+include ':app'
