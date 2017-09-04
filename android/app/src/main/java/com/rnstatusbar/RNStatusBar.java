@@ -1,7 +1,9 @@
 package com.rnstatusbar;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.facebook.react.bridge.Callback;
@@ -27,6 +29,12 @@ public class RNStatusBar extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setARGB(int a,int r, int g, int b){
+        int color = Color.argb(a, r, g, b);
+        setStatusColor(color);
+    }
+
+    @ReactMethod
     public void showStatusBar(final boolean bShow, final Callback callback) {
 
         getCurrentActivity().runOnUiThread(new Runnable() {
@@ -42,6 +50,21 @@ public class RNStatusBar extends ReactContextBaseJavaModule {
         if (callback != null) {
             callback.invoke();
         }
+    }
+
+    private void setStatusColor(final int color){
+        getCurrentActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(Build.VERSION.SDK_INT >= 21){
+                    Window window = getCurrentActivity().getWindow();
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.setStatusBarColor(color);
+                }
+
+            }
+        });
+
     }
 
     private void hideStatusBar() {
